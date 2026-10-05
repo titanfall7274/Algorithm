@@ -28,6 +28,7 @@ public class Phoneketmon {
 
 
     // N마리의 포켓몬중 N/2을 가져가라
+    // n = nums.length (최대 1만), 총 O(n)
     private static int solution(int[] nums) {
         int answer = 0;
 
@@ -53,6 +54,7 @@ public class Phoneketmon {
         return answer;
     }
 
+    // 총 O(n)
     private static int solution2(int[] nums) {
         HashSet<Integer> hashSet = new HashSet<>();
         // O(n)
@@ -63,8 +65,9 @@ public class Phoneketmon {
         return Math.min(hashSet.size(), nums.length / 2);
     }
 
+    // 총 O(n), 정렬 없음
     private static int solution3(int[] nums) {
-        // distinct() O(N)
+        // distinct() O(N) — 내부에서 Integer로 박싱한 뒤 HashSet으로 거름
         // count() O(N)
         return (int) Math.min(Arrays.stream(nums).distinct().count(), nums.length / 2);
     }
